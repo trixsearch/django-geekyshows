@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block title %}Model Uses{% endblock title %} 
+{%block body %} 
+Hi This is just to show how to use Models in Django.
+
+<h1>Students Details as follows</h1>
+
+{% if students %}
+<p>students is present, in database </p>
+
+{% comment %} <ul>
+  {% for stu in students %}
+  <li>{{ stu.name }} - {{ stu.city }} - {{ stu.email }}</li>
+  {% endfor %}
+</ul> {% endcomment %}
+
+<table class="table table-bordered table-striped table-hover">
+  <th>S No</th>
+  <th>Name</th>
+  <th>City</th>
+  <th>Email</th>
+  {% for stu in students %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ stu.name }}</td>
+    <td>{{ stu.city }}</td>
+    <td>{{ stu.email }}</td>
+  {% endfor %}
+</table>
+{% else %}
+<p>No students are present.</p>
+
+{% endif %} {% endblock body %}

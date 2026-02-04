@@ -1,0 +1,35 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block title %}Home for App{% endblock title %}
+
+
+{% block body %}
+
+<h1>Template Check and configure</h1>
+    <p>testing data coming from the back</p>
+    {{name}}
+    {{num}}
+    {{city}}
+    <br>
+    {{desc|truncatewords:5|capfirst}}
+    <br>
+    Status : {{status|default:"Single"}}
+    <br>
+    length of name : {{name|length}}
+    <br>
+    slice of name : {{name|slice:":3"}}
+    <br>
+    trucate Character  : {{desc|truncatechars:10}}
+    <br>
+    Date : {{date|date:'TIME_FORMAT'}}
+
+<br>
+Numbers : {{num|floatformat:3}}
+<br>
+<img src="{% static 'app/naruto_scenery.jpg' %}" width="50%" alt="img from static folder">
+
+
+<p><a href="{% url 'home' %}">Go to home</a></p>
+
+{% endblock body %}

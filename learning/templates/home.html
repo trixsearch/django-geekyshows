@@ -1,0 +1,50 @@
+  {% extends "base.html" %}
+  {% load static %}
+
+  {% block title %}Home Page{% endblock title %}
+
+  {% block body %}
+  <h1>Home for Index</h1>
+      <h3>
+        I think you just redirected to home , get the index and try anything from
+        the table
+      </h3>
+      <br /><br />
+
+      <table class="table table-bordered border-primary table-hover w-50">
+    <tr>
+          <th class="table-light">S No.</th>
+          <th class="table-light">Name of the API</th>
+        </tr>
+
+        {% comment %}
+        <tr>
+          <td>1</td>
+          <td><a href="{% url 'temp_tutorial' %}">temp/</a></td>
+        </tr>
+        {% endcomment %} 
+        
+        {% for t in tabcontents %}
+        <tr>
+          <td >{{forloop.counter}}</td>
+          {% comment %}
+          <td>{{forloop.first}}</td>
+          {% endcomment %}
+          <td class="position-relative"><a href="{% url t.urlname %}" class="stretched-link">{{t.urlname}}</a></td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td>{{tabcontents|length|add:"1"}}</td>
+          <td class="position-relative"><a href="/admin" class="stretched-link">Admin Panel</a></td>
+        </tr>
+
+  </table>
+
+      <br />  
+      <form action="">
+
+        <input type="button" value="Click for alert" onclick="alertShow()" />
+
+        <script src="{% static 'app/script.js' %}"></script>
+      </form>
+  {% endblock body %}
