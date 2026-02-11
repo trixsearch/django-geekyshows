@@ -19,3 +19,11 @@ class Result(models.Model):
     # yaha mein Simple or normal way sey karke dikhaya hu
     def __str__(self):
         return str(self.stu_class)
+    
+class Teacher(models.Model):
+    t_name = models.CharField(max_length=150)
+    t_number = models.IntegerField()
+    t_email = models.EmailField()
+    
+    def __str__(self):
+        return str(self.t_name)
