@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Student Registration Form{% endblock title %}
+
+{% block body %}   
+
+<h1>Student Registration Form</h1>
+
+<form action="">
+    {{bhejo_do_form}}
+    {% comment %} agar humko table ki tarah karna hai reder toh simply .as_table, ya .as_p ,.as_ul , .as_ol kar sakte hai
+      <table>
+        {{bhejo_do_form.as_table}}
+      </table> {% endcomment %}
+    <button>Register</button>
+</form>
+
+{% endblock body %}
